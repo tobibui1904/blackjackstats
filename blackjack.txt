@@ -1,0 +1,19 @@
+Welcome to my simplified version of Blackjack. My name is Tobi and nice to meet you all my players. First, let's go through the history, shall we.
+
+Blackjack's immediate precursor was the English version of twenty-one called Vingt-Un, a game of unknown (but probably Spanish) provenance. The first written reference is found in a book by the Spanish author Miguel de Cervantes. Cervantes was a gambler, and the protagonists of his "Rinconete y Cortadillo", from Novelas Ejemplares, are card cheats in Seville. They are proficient at cheating at veintiuna (Spanish for "twenty-one") and state that the object of the game is to reach 21 points without going over and that the ace values 1 or 11. The game is played with the Spanish baraja deck.
+
+"Rinconete y Cortadillo" was written between 1601 and 1602, implying that ventiuna was played in Castile since the beginning of the 17th century or earlier. Later references to this game are found in France and Spain.
+
+The first record of the game in France occurs in 1768 and in Britain during the 1770s and 1780s, but the first rules appear in Britain in 1800 under the name of Vingt-Un. Twenty-One, still known then as Vingt-Un, appeared in the United States in the early 1800s. The first American rules were an 1825 reprint of the 1800 English rules. English Vingt-Un later developed into an American variant in its own right which was renamed blackjack around 1899.
+
+According to popular myth, when Vingt-Un ("Twenty-One") was introduced into the United States (in the early 1800s, during the First World War, or in the 1930s, depending on the source), gambling houses offered bonus payouts to stimulate players' interest. One such bonus was a ten-to-one payout if the player's hand consisted of the ace of spades and a black jack (either the jack of clubs or the jack of spades). This hand was called a "blackjack", and the name stuck even after the ten-to-one bonus was withdrawn.
+
+French card historian Thierry Depaulis debunks this story, showing that prospectors during the Klondike Gold Rush (1896–99) gave the name blackjack to the game of American Vingt-Un, the bonus being the usual ace and any 10-point card. Since 'blackjack' also refers to the mineral zincblende, which was often associated with gold or silver deposits, he suggests that the mineral name was transferred by prospectors to the top bonus hand. He was unable to find any historical evidence for a special bonus for having the combination of an ace with a black jack.
+
+In September 1956, Roger Baldwin, Wilbert Cantey, Herbert Maisel, and James McDermott published a paper titled The Optimum Strategy in Blackjack in the Journal of the American Statistical Association, the first mathematically sound optimal blackjack strategy. This paper became the foundation of future efforts to beat blackjack. Ed Thorp used Baldwin's hand calculations to verify the basic strategy and later published (in 1963) Beat the Dealer.
+
+I'm so sorry for the long history but I hope the game will be more interesting. Hope you enjoy the game and have a nice day!!!
+
+Best,
+
+Tobi

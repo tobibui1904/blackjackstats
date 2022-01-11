@@ -1,0 +1,20 @@
+{
+  "files": {
+    "blackjack.py": [
+      {
+        "id": "5d8b353f-124c-43d5-95f2-4de6ef1ffd23",
+        "line": 19,
+        "version": 8051,
+        "index": 435
+      }
+    ],
+    "glassyfigure/auction.py": [
+      {
+        "id": "2e178cc8-15ca-49fd-aa77-74f9fabd3694",
+        "line": 1,
+        "version": 69,
+        "index": 0
+      }
+    ]
+  }
+}
