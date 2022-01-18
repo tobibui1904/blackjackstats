@@ -2,6 +2,9 @@ import random
 from random import randrange
 import sys
 import string
+import picture
+
+# data science library
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
@@ -42,27 +45,50 @@ def enter():
     enter=input('Please click enter to update your money: ')
     while enter not in (''):
       enter=input("Don't forget to click enter:")
-    
+
+# the winner's picture
+def sketch():
+  ques=input("Do you want to see the surprise? (y/n) ").strip(string.punctuation).lower()
+  if ques=='n':
+        print("It's okay. See you next time!")
+  elif ques=='y':
+    done=False
+    while not done:
+      try:
+        image = picture.load_image(input("Please enter a filename (congrat.jpg): "))
+        width = picture.image_width(image)
+        height = picture.image_height(image)
+        picture.new_picture(width, height)
+        picture.draw_image(0, 0, image)
+        picture.display()
+        done=True
+      except FileNotFoundError:
+        print("Picture doesn't exit")
+  else:
+    while ques not in('y','n'):
+      ques=input('Please choose the correct letter: ')
+
 #play the game
-def play(player,whose_turn):
+def play(player):
   global turn
   global player_money
   signal='Blackjack'
   point=0
   player=drawcard(player)
-  print(whose_turn)
+  print()
   print(player)
+
   # situation 1: first card is a integer
   if type(player[0])==int:
     if player[1]=='J' or player[1]=='Q' or player[1]=='K':
       print(player[0]+10)
       point=player[0]+10
+
     if player[1]=='A':
       if player[0]+11==21:
         print(signal)
         print(11)
         point=21
-        
       else:
         print(player[0]+11)
         print(player[0]+1)
@@ -100,7 +126,6 @@ def play(player,whose_turn):
       if sum==21:
         print(signal)
         point=21
-
       else:
         print(sum)
         point=11+player[1]
@@ -111,7 +136,7 @@ def play(player,whose_turn):
     print(player[0]+player[1])
     point=player[0]+player[1]
 
-  # blackjack signal system
+  # blackjack signals system: hit, stand, double down, analyst,shut down
   done = False
   while not done:
     print()
@@ -149,6 +174,7 @@ def play(player,whose_turn):
       sum_A_11=a+sum_int+c+d+f
       sum_A_1=a+sum_int+c+d+e
       
+      # situation 1: there's no A in the hand
       if 'A' not in player:
         if sum_no_A==21:
           print(signal)
@@ -172,6 +198,7 @@ def play(player,whose_turn):
           point=0
           done=True
 
+      # situation 2: there's an A in the hand
       elif 'A' in player:
         if sum_A_11==21:
           print(signal)
@@ -216,6 +243,7 @@ def play(player,whose_turn):
         else:
           point=sum_A_11
 
+      # situation 3: when the hand reaches 5 cards
       if len(player)==5:
         if sum_no_A==21 and 'A' not in player:
           print(signal)
@@ -229,6 +257,7 @@ def play(player,whose_turn):
           print('win')
           player_money=player_money+player_bet*1.5
           print('Now you have',player_money)
+          sketch()
           print()
           point=21
           done=True
@@ -249,6 +278,8 @@ def play(player,whose_turn):
         item1 = blackjack[q]
         player.append(item1)
         print(player)
+
+        # calculate the sum of integer element in the list
         n=[]
         countJ=player.count('J')
         countQ=player.count('Q')
@@ -271,6 +302,7 @@ def play(player,whose_turn):
         sum_A_11=a+sum_int+c+d+f
         sum_A_1=a+sum_int+c+d+e
 
+        # situation 1: there's no A in the hand
         if 'A' not in player:
           if sum_no_A>21:
             print('You lost')
@@ -286,6 +318,8 @@ def play(player,whose_turn):
           else:
               print(sum_no_A)
               point=sum_no_A
+        
+        # situation 2: there's an A in the hand
         elif 'A' in player:
           if sum_A_11>21:
             pass
@@ -300,6 +334,8 @@ def play(player,whose_turn):
             point=sum_A_1
           else:
             point=sum_A_11
+
+        # After draw the third card from the deck, immediately stop and go to comparison
         player_list.append(point)
         for i in range(len(player_list)):
           if i==0:
@@ -309,6 +345,7 @@ def play(player,whose_turn):
               print('Player win')
               player_money=player_money+player_bet*2
               print('Now you have',player_money+player_bet*2)
+              sketch()
               print()
             
             elif player_list[0]==player_list[1]:
@@ -327,6 +364,7 @@ def play(player,whose_turn):
       print()
       done=True
     
+    # the shut down signal
     elif next_draw=='shut down':
       sys.exit(-1)
       
@@ -348,6 +386,7 @@ def play(player,whose_turn):
               enter()
               y.append(player_money)
               print()
+              sketch()
 
             elif x[0]==x[1]:
               print('Tie game')
@@ -371,6 +410,7 @@ def play(player,whose_turn):
             x.clear()
       done = True
 
+    #the analyst signal
     elif next_draw=='analyst':
       print("turn", '\t', "money you have after each turn")
       print("---", '\t', "-----")
@@ -419,12 +459,10 @@ def play(player,whose_turn):
 # play the game function
 def run():
   while True:
-    player_turn="player's turn"
-    housebet_turn="housebet's turn"
     player=[1,1]
     housebet=[1,1]
-    play(drawcard(player),player_turn)
-    play(drawcard(housebet),housebet_turn)
+    play(drawcard(player))
+    play(drawcard(housebet))
 
 # main function
 def main():
